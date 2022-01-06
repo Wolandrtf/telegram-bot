@@ -8,8 +8,6 @@ const bot = new TelegramApi(token, {polling: true});
 bot.on('message', async (msg) => {
     const {text, chat} = msg;
     const {id} = chat;
-    console.log(text);
-    console.log(id);
 
     if (text === '/start') {
         await bot.sendMessage(id, 'Добро пожаловать в Словарь сокращений ПочтаТеха. Введи сокращение и получишь расшифровку');
@@ -21,7 +19,4 @@ bot.on('message', async (msg) => {
     } else {
         await bot.sendMessage(id, 'Ничего не найдено');
     }
-
-    console.log(db);
-
 })
